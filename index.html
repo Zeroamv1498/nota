@@ -19,7 +19,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; /* Elimina el highlight gris al tocar en móvil */
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -31,7 +31,6 @@
         }
 
         /* ========== OPTIMIZACIÓN PARA MÓVIL ========== */
-        /* Reducir animaciones en móvil para mejor rendimiento */
         @media (max-width: 768px) {
             .particle, .floating-flower, .cloud {
                 animation-duration: 8s !important;
@@ -39,7 +38,7 @@
             }
         }
 
-        /* Partículas brillantes - más sutiles en móvil */
+        /* Partículas brillantes */
         .particle {
             position: absolute;
             background: radial-gradient(circle, #fff9cf, #ffdd99);
@@ -55,7 +54,7 @@
             100% { opacity: 0; transform: scale(0); }
         }
 
-        /* Nubes suaves - más pequeñas en móvil */
+        /* Nubes suaves */
         .cloud {
             position: absolute;
             background: rgba(255, 250, 240, 0.6);
@@ -75,7 +74,7 @@
             animation: floatCloud 20s infinite alternate;
         }
 
-        /* Flores flotantes - más pequeñas en móvil */
+        /* Flores flotantes */
         .floating-flower {
             position: absolute;
             font-size: 1.5rem;
@@ -101,7 +100,7 @@
             z-index: 10;
         }
 
-        /* Círculo de luz - más pequeño en móvil */
+        /* Círculo de luz */
         .glow-bg {
             position: absolute;
             width: 80vw;
@@ -128,10 +127,9 @@
             padding: 20px 15px;
             border: 2px solid #ffddb0;
             box-shadow: 0 15px 30px rgba(255, 140, 170, 0.1), 0 0 0 4px rgba(255, 245, 235, 0.5);
-            transition: transform 0.2s ease;
         }
 
-        /* Carrusel personalizado - optimizado para touch */
+        /* Carrusel - con botones más pequeños */
         .carousel-inner {
             border-radius: 35px;
         }
@@ -140,24 +138,78 @@
             padding: 10px 8px;
         }
         
-        /* Controles del carrusel - más grandes para dedos */
+        /* ========== BOTONES DE CARRUSEL MÁS PEQUEÑOS ========== */
         .carousel-control-prev,
         .carousel-control-next {
-            width: 40px;
-            height: 40px;
-            background: rgba(247, 178, 122, 0.6);
+            width: 32px !important;
+            height: 32px !important;
+            background: rgba(247, 178, 122, 0.7);
             border-radius: 50%;
             top: 50%;
             transform: translateY(-50%);
-            opacity: 0.8;
+            opacity: 0.7;
             backdrop-filter: blur(4px);
+            transition: all 0.2s ease;
         }
+        
+        .carousel-control-prev {
+            left: 5px;
+        }
+        
+        .carousel-control-next {
+            right: 5px;
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 18px;
+            height: 18px;
+            background-size: 12px;
+        }
+        
         .carousel-control-prev:hover,
         .carousel-control-next:hover,
         .carousel-control-prev:active,
         .carousel-control-next:active {
             background: #f7b27a;
             opacity: 1;
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        /* En móviles, botones aún más pequeños pero visibles */
+        @media (max-width: 576px) {
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 28px !important;
+                height: 28px !important;
+            }
+            .carousel-control-prev {
+                left: 2px;
+            }
+            .carousel-control-next {
+                right: 2px;
+            }
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 16px;
+                height: 16px;
+                background-size: 10px;
+            }
+        }
+        
+        /* Tablets */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 34px !important;
+                height: 34px !important;
+            }
+            .carousel-control-prev {
+                left: 3px;
+            }
+            .carousel-control-next {
+                right: 3px;
+            }
         }
         
         /* Indicadores más grandes para tocar */
@@ -179,7 +231,7 @@
             opacity: 1;
         }
 
-        /* Estilo de cada slide - optimizado para lectura en móvil */
+        /* Estilo de cada slide */
         .slide-content {
             text-align: center;
             padding: 10px 8px;
@@ -219,7 +271,7 @@
             margin-top: 8px;
         }
 
-        /* Botón de música y sorpresa - más grandes y táctiles */
+        /* Botones flotantes de música y sorpresa */
         .music-btn, .surprise-btn {
             position: fixed;
             bottom: 20px;
@@ -238,7 +290,6 @@
             justify-content: center;
             cursor: pointer;
             touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
         }
         .music-btn:active, .surprise-btn:active {
             transform: scale(0.92);
@@ -255,10 +306,10 @@
         }
         @keyframes pulseMusic {
             0%, 100% { box-shadow: 0 0 5px #f5a07a; }
-            50% { box-shadow: 0 0 15px #f7b27a; }
+            50% { box-shadow: 0 0 12px #f7b27a; }
         }
 
-        /* Modal personalizado - optimizado para móvil */
+        /* Modal */
         .custom-modal {
             position: fixed;
             top: 0;
@@ -305,7 +356,7 @@
             margin-top: 10px;
         }
 
-        /* Firma pequeña */
+        /* Firma */
         .footer-signature {
             margin-top: 30px;
             padding: 10px;
@@ -316,8 +367,6 @@
             margin: 0;
         }
 
-        /* ========== MEDIA QUERIES PARA MÓVIL ========== */
-        
         /* Pantallas muy pequeñas */
         @media (max-width: 480px) {
             .hero-section {
@@ -348,33 +397,9 @@
             }
             .music-btn { left: 15px; }
             .surprise-btn { right: 15px; }
-            .modal-content-custom {
-                padding: 20px 15px;
-                width: 280px;
-            }
         }
 
-        /* Pantallas medianas (tablets pequeñas) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .carousel-card {
-                padding: 25px 20px;
-            }
-            .slide-title {
-                font-size: 1.6rem;
-            }
-            .slide-text {
-                font-size: 1rem;
-            }
-            .slide-icon {
-                font-size: 2.8rem;
-            }
-            .music-btn, .surprise-btn {
-                width: 55px;
-                height: 55px;
-            }
-        }
-
-        /* Prevenir zoom accidental en inputs y botones */
+        /* Prevenir zoom accidental */
         button, 
         .carousel-control-prev, 
         .carousel-control-next,
@@ -382,12 +407,7 @@
             touch-action: manipulation;
         }
 
-        /* Mejorar scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Ajuste para iPhone con notch */
+        /* Soporte para iPhone notch */
         @supports (padding: max(0px)) {
             .hero-section {
                 padding-left: max(12px, env(safe-area-inset-left));
@@ -409,7 +429,6 @@
     <!-- Elemento de audio oculto -->
     <audio id="cancionVanessa" loop preload="auto">
         <source src="The Greatest Showman Cast - A Million Dreams (Official Audio).mp3" type="audio/mpeg">
-        <!-- Si tienes otro formato, agrégalo aquí -->
     </audio>
 
     <!-- Partículas brillantes -->
@@ -448,7 +467,7 @@
                             </div>
                             
                             <div class="carousel-inner">
-                                <!-- Slide 1 - Tulipanes y apoyo -->
+                                <!-- Slide 1 -->
                                 <div class="carousel-item active">
                                     <div class="slide-content">
                                         <div class="slide-icon">🌷✨🌷</div>
@@ -462,7 +481,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Slide 2 - Cerditos y ternura -->
+                                <!-- Slide 2 -->
                                 <div class="carousel-item">
                                     <div class="slide-content">
                                         <div class="slide-icon">🌸🌸🌸</div>
@@ -475,7 +494,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Slide 3 - Mensaje de fuerza -->
+                                <!-- Slide 3 -->
                                 <div class="carousel-item">
                                     <div class="slide-content">
                                         <div class="slide-icon">🌟🌻🌟</div>
@@ -488,7 +507,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Slide 4 - Apoyo incondicional -->
+                                <!-- Slide 4 -->
                                 <div class="carousel-item">
                                     <div class="slide-content">
                                         <div class="slide-icon">💕🌷💕</div>
@@ -501,7 +520,7 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Slide 5 - Magia y esperanza -->
+                                <!-- Slide 5 -->
                                 <div class="carousel-item">
                                     <div class="slide-content">
                                         <div class="slide-icon">✨🐷✨</div>
@@ -515,7 +534,7 @@
                                 </div>
                             </div>
                             
-                            <!-- Controles del carrusel -->
+                            <!-- Botones del carrusel - MÁS PEQUEÑOS -->
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselVanessa" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Anterior</span>
@@ -527,7 +546,7 @@
                         </div>
                     </div>
                     
-                    <!-- Pequeña firma -->
+                    <!-- Firma -->
                     <div class="text-center footer-signature">
                         <p>🌷🌼🌻 Cada tulipán aquí es un recordatorio de lo valiosa que eres 🌻🌼🌷</p>
                     </div>
@@ -536,17 +555,17 @@
         </div>
     </div>
 
-    <!-- Botón de música (izquierda) -->
+    <!-- Botón de música -->
     <div class="music-btn" id="musicBtn" onclick="toggleMusica()">
         <i class="bi bi-music-note-beamed"></i>
     </div>
 
-    <!-- Botón flotante sorpresa (derecha) -->
+    <!-- Botón sorpresa -->
     <div class="surprise-btn" onclick="showBigSurprise()">
         ✨
     </div>
 
-    <!-- Modal personalizado -->
+    <!-- Modal -->
     <div id="magicModal" class="custom-modal">
         <div class="modal-content-custom">
             <div>🌷🐷✨</div>
@@ -559,10 +578,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // ========== PARTÍCULAS BRILLANTES (menos partículas en móvil) ==========
+        // Partículas brillantes
         function createParticles() {
             const container = document.getElementById('particleContainer');
-            // Menos partículas en móvil para mejor rendimiento
             const particleCount = window.innerWidth < 768 ? 30 : 50;
             
             for (let i = 0; i < particleCount; i++) {
@@ -580,21 +598,17 @@
         }
         createParticles();
 
-        // ========== CONTROL DE MÚSICA ==========
+        // Control de música
         let musicaActivada = false;
         let audioElement = document.getElementById('cancionVanessa');
         let musicBtn = document.getElementById('musicBtn');
         
-        // Configurar volumen (40% en móvil para no saturar)
         if (audioElement) {
             audioElement.volume = 0.4;
         }
         
         function toggleMusica() {
-            if (!audioElement) {
-                console.error('Elemento de audio no encontrado');
-                return;
-            }
+            if (!audioElement) return;
             
             if (!musicaActivada) {
                 let playPromise = audioElement.play();
@@ -602,10 +616,7 @@
                     playPromise.then(() => {
                         musicaActivada = true;
                         musicBtn.classList.add('playing');
-                        console.log('🎵 Canción reproduciéndose');
-                    }).catch(error => {
-                        console.log('Error al reproducir:', error);
-                        // Mensaje amigable para el usuario
+                    }).catch(() => {
                         alert('Toca el botón para escuchar la música');
                     });
                 }
@@ -616,7 +627,6 @@
             }
         }
         
-        // Cuando termina la canción, volver al estado inicial
         if (audioElement) {
             audioElement.addEventListener('ended', function() {
                 musicaActivada = false;
@@ -624,7 +634,7 @@
             });
         }
 
-        // ========== MODAL SORPRESA ==========
+        // Modal sorpresa
         function showBigSurprise() {
             const modal = document.getElementById('magicModal');
             const textEl = document.getElementById('modalText');
@@ -646,41 +656,17 @@
             document.getElementById('magicModal').style.display = 'none';
         }
 
-        // Cerrar modal al hacer clic fuera
         document.getElementById('magicModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
-
-        // Prevenir que el modal se cierre al tocar el contenido
-        document.querySelector('.modal-content-custom').addEventListener('click', function(e) {
+        
+        document.querySelector('.modal-content-custom')?.addEventListener('click', function(e) {
             e.stopPropagation();
         });
 
-        // ========== OPTIMIZACIONES PARA MÓVIL ==========
-        
-        // Reducir la intensidad de las animaciones si el dispositivo tiene preferencia de movimiento reducido
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            const style = document.createElement('style');
-            style.textContent = `
-                .particle, .floating-flower, .cloud, .glow-bg, .slide-icon, .music-btn.playing {
-                    animation: none !important;
-                }
-                .carousel-item {
-                    transition: none !important;
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        // Detectar si es dispositivo táctil para mejorar feedback
-        if ('ontouchstart' in window) {
-            document.body.classList.add('touch-device');
-        }
-
-        // Mensaje oculto en consola
+        // Mensaje en consola
         console.log('%c🌷 Para Vanessa, la persona que ilumina la vida de sus seres queridos 🌷', 'color: #f5a07a; font-size: 14px;');
         console.log('%c💛 Eres fuerte, valiosa y única 💛', 'color: #efb28b; font-size: 12px;');
-        console.log('%c📱 Esta página está optimizada para tu celular', 'color: #d9b694; font-size: 11px;');
     </script>
 </body>
 </html>
